@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Payment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Payment"
+        android:textColor="@color/purple_700"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+    <Button
+        android:layout_width="99dp"
+        android:layout_height="wrap_content"
+        android:text="BELI"
+        android:layout_gravity="right"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="9dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:text="Masukan ID Game : "
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/idgame"
+            android:layout_marginLeft="160dp"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:hint="ID Game "/>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="9dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:text="Masukan Jumplah Diamond : "
+            android:textStyle="bold"/>
+        <EditText
+            android:id="@+id/jumbeli"
+            android:layout_marginLeft="234dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Masukan Jumplah "/>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Informasi Harga :"
+        android:textStyle="bold"
+        android:textSize="16dp"/>
+    <GridLayout
+        android:layout_marginTop="11dp"
+        android:columnCount="2"
+        android:rowCount="3"
+        android:columnOrderPreserved="false"
+        android:alignmentMode="alignMargins"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/diamond1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="15dp"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16sp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/diamond"/>
+                <TextView
+                    android:layout_marginTop="12dp"
+                    android:text="367 Diamond +\n      41 Bonus"
+
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginTop="12dp"
+                    android:text="Rp. 158.175"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/diamond2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="15dp"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16sp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/diamond"/>
+                <TextView
+                    android:layout_marginTop="12dp"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:text="154 Diamond +\n    41 Bonus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginTop="12dp"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:text="Rp. 48.507"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </GridLayout>
+    <GridLayout
+        android:layout_marginTop="11dp"
+        android:columnCount="2"
+        android:rowCount="3"
+        android:columnOrderPreserved="false"
+        android:alignmentMode="alignMargins"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/diamond3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="15dp"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16sp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/diamond"/>
+                <TextView
+                    android:layout_marginTop="12dp"
+                    android:text="400 Diamond +\n     12 Bonus"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginTop="12dp"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:text="Rp. 230.000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/diamond4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="15dp"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16sp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/diamond"/>
+
+                <TextView
+                    android:layout_marginTop="12dp"
+                    android:text="1000 Diamond +\n     209 Bonus"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginTop="12dp"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:text="Rp. 1.230.000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </GridLayout>
+</LinearLayout>
