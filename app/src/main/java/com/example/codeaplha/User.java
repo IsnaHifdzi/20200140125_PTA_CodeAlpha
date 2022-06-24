@@ -12,11 +12,17 @@ public class User {
     @SerializedName("id")
     private String id;
 
+    @SerializedName("usergame")
+    private String usergame;
+
     @SerializedName("idgame")
     private String idgame;
 
-    @SerializedName("jumplah")
-    private String jumplah;
+    @SerializedName("jumlah")
+    private String jumlah;
+
+    @SerializedName("metode")
+    private String metode;
 
     @SerializedName("value")
     private String value;
@@ -32,20 +38,36 @@ public class User {
         this.id = id;
     }
 
+    public String getUsergame() {
+        return usergame;
+    }
+
+    public void setUsergame(String usergame) {
+        this.usergame = usergame;
+    }
+
     public String getIdgame() {
         return idgame;
     }
 
-    public void setIdgame(String namapemilik) {
+    public void setIdgame(String idgame) {
         this.idgame = idgame;
     }
 
-    public String getJumplah() {
-        return jumplah;
+    public String getJumlah() {
+        return jumlah;
     }
 
-    public void setJumplah(String jumplah) {
-        this.jumplah = jumplah;
+    public void setJumlah(String jumlah) {
+        this.jumlah = jumlah;
+    }
+
+    public String getMetode() {
+        return metode;
+    }
+
+    public void setMetode(String metode) {
+        this.metode = metode;
     }
 
     public String getValue() {

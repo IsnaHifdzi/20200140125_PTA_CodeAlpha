@@ -1,102 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="start"
     android:layout_marginTop="4dp"
     android:layout_marginBottom="4dp"
     android:layout_marginRight="8dp"
-    android:layout_marginLeft="7dp">
+    android:layout_marginLeft="8dp"
+    app:cardCornerRadius="8dp">
 
-    <androidx.cardview.widget.CardView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="9dp"
-        >
-
+        android:layout_height="wrap_content"
+        android:padding="8dp">
         <TextView
+            android:id="@+id/satu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18dp"
+            android:layout_alignParentLeft="true"
             android:text="Usergame Anda : "
             android:textStyle="bold"/>
+
         <TextView
             android:id="@+id/Nama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="160dp"
-            android:textSize="20sp"
             android:hint="Nama"
             android:textColor="@color/black"
-            android:textStyle="bold"/>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="9dp">
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/dua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
+            android:layout_below="@+id/satu"
+            android:layout_marginTop="8dp"
             android:text="Id Game Anda    : "
-            android:textStyle="bold"/>
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
         <TextView
-            android:layout_marginLeft="160dp"
             android:id="@+id/game"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:layout_below="@+id/Nama"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="4dp"
             android:hint="Id Game"
             android:textColor="@color/black"
-            android:textStyle="bold"/>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="9dp">
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tiga"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
+            android:layout_below="@+id/dua"
+            android:layout_marginTop="8dp"
             android:text="Jumlah diBeli     : "
-            android:textStyle="bold"/>
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
         <TextView
-            android:layout_marginLeft="160dp"
+            android:layout_marginTop="4dp"
             android:id="@+id/jumlahdiamon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:layout_below="@+id/game"
+            android:layout_marginLeft="160dp"
             android:hint="Jumlah diamon"
             android:textColor="@color/black"
-            android:textStyle="bold"/>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="9dp">
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
+            android:layout_marginTop="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
+            android:layout_below="@+id/tiga"
             android:text="Metode Bayar    : "
-            android:textStyle="bold"/>
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
         <TextView
-            android:layout_marginLeft="160dp"
+            android:layout_marginTop="4dp"
             android:id="@+id/metodebeli"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:layout_below="@id/jumlahdiamon"
+            android:layout_marginLeft="160dp"
             android:hint="Metode"
             android:textColor="@color/black"
-            android:textStyle="bold"/>
-    </androidx.cardview.widget.CardView>
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-</LinearLayout>
+
+    </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>

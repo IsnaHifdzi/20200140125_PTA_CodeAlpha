@@ -27,11 +27,13 @@ import java.util.Map;
 public class Regertrasi extends AppCompatActivity {
     private EditText namereg, telponreg, passwordreg, regpassword;
     private Button btn_register;
-
     private static String URL_REGIST = "http://192.168.1.7/user/regertrasi.php";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_regertrasi);
         namereg = findViewById(R.id.namaregister);
         telponreg = findViewById(R.id.telponregister);

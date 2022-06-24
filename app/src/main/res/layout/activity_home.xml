@@ -6,61 +6,66 @@
     android:layout_height="match_parent"
     tools:context=".Home">
 
-    <androidx.cardview.widget.CardView
+    <TextView
+        android:id="@+id/judul"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Welcome to CodeAlpha"
+        android:textColor="@color/purple_700"
+        android:textSize="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.255" />
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/namauser"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="20dp">
-
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="64dp"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/ic_user" /> />
-        <TextView
-            android:id="@+id/nama"
-            android:layout_width="200dp"
-            android:layout_height="30dp"
-            android:textColor="@color/black"
-            android:textSize="24dp"
-            android:layout_marginLeft="100dp"
-            android:text="nama"/>
-        <TextView
-            android:id="@+id/telpon"
-            android:layout_width="200dp"
-            android:layout_height="30dp"
-            android:textSize="20dp"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="30dp"
-            android:text="Telpon"/>
-    </androidx.cardview.widget.CardView>
-
+        android:layout_height="wrap_content"
+        android:layout_below="@id/judul"
+        android:textColor="@color/black"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="20dp"
+        android:text="nama"/>
+    <TextView
+        android:gravity="center"
+        android:id="@+id/telponuser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/namauser"
+        android:textColor="@color/black"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="20dp"
+        android:text="telpon"/>
 
     <ImageView
-        android:layout_width="295dp"
-        android:layout_height="413dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="59dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="267dp"
+        android:layout_width="342dp"
+        android:layout_height="355dp"
+        android:layout_below="@+id/telponuser"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:src="@drawable/alpha2" />
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="449dp"
-        android:layout_marginBottom="111dp"
+        android:layout_marginTop="450dp"
         android:alignmentMode="alignMargins"
         android:columnCount="2"
         android:columnOrderPreserved="false"
         android:rowCount="3">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/service"
+            android:id="@+id/bangbang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_rowWeight="1"
@@ -77,8 +82,8 @@
                 android:padding="16sp">
 
                 <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="114dp"
+                    android:layout_height="91dp"
                     android:src="@drawable/ml4" />
 
                 <TextView
@@ -94,7 +99,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/pesanan"
+            android:id="@+id/keranjangpem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_rowWeight="1"
@@ -113,7 +118,7 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/kategori" />
+                    android:src="@drawable/ic_cart" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -126,15 +131,20 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
-
     </GridLayout>
 
     <Button
-        android:id="@+id/btnlogout"
-        android:layout_width="300dp"
+        android:id="@+id/btn_logout"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="55dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="650dp"
+        android:layout_marginRight="20dp"
         android:gravity="center"
-        android:text="Logout" />
+        android:text="Logout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </RelativeLayout>

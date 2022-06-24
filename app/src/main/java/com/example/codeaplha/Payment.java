@@ -3,10 +3,12 @@ package com.example.codeaplha;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import retrofit2.Call;
@@ -15,10 +17,11 @@ import retrofit2.Response;
 
 public class Payment extends AppCompatActivity {
 
-    EditText nid, ndibeli;
-    Button ganti,hapoos;
-    Apiinterface apiinterface;
-    String ida,idb,jumlah;
+    EditText input_nama, input_id, input_jumlah, input_metode;
+    Button btn_beli, btn_delete;
+    ApiInterface apiInterface;
+
+    String yid,usergame,idgame,jumlah,metode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,124 +29,144 @@ public class Payment extends AppCompatActivity {
         setContentView(R.layout.activity_payment);
 
         Intent intent = getIntent();
-        ida = intent.getStringExtra("id");
-        idb = intent.getStringExtra("idgame");
-        jumlah = intent.getStringExtra("jumplah");
+        yid = intent.getStringExtra("id");
+        usergame = intent.getStringExtra("usergame");
+        idgame = intent.getStringExtra("idgame");
+        jumlah = intent.getStringExtra("jumlah");
+        metode = intent.getStringExtra("metode");
 
-        nid = findViewById(R.id.idgame);
-        ndibeli = findViewById(R.id.jumbeli);
 
-        condition(ida);
+        input_nama = findViewById(R.id.nama);
+        input_id = findViewById(R.id.idgame);
+        input_jumlah = findViewById(R.id.jumlah);
+        input_metode = findViewById(R.id.metodebayar);
+        btn_beli = findViewById(R.id.btnbeli);
+        btn_delete = findViewById(R.id.btnDelete);
+
+        condition(yid);
+
     }
-    private  void  condition(String id){
+
+    private void condition(String id) {
+
         if(id == null){
-            ganti.setOnClickListener(new View.OnClickListener() {
+            btn_beli.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Add();
                 }
             });
-            hapoos.setVisibility(View.GONE);
+            btn_delete.setVisibility(View.GONE);
         }else {
-            nid.setText(idb);
-            ndibeli.setText(jumlah);
+            TextView text_title = findViewById(R.id.textTitle);
+            text_title.setText("KERANJANG");
+            input_nama.setText(usergame);
+            input_id.setText(idgame);
+            input_jumlah.setText(jumlah);
+            input_metode.setText(metode);
 
-            ganti.setOnClickListener(new View.OnClickListener() {
+            btn_beli.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Update();
+                    update();
                 }
             });
-            hapoos.setOnClickListener(new View.OnClickListener() {
+            btn_delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Delete();
                 }
             });
         }
-
-
     }
 
     private void Delete() {
-        String idg = ida;
+        String aid = yid;
 
-        apiinterface = Client.getClient().create(Apiinterface.class);
+        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
 
-        Call<User> call = apiinterface.hapos(idg);
-        call.enqueue(new Callback<User>() {
-            @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                String value = response.body().getValue();
-                String massage = response.body().getMessage();
-
-                if (value.equals("1")){
-                    Toast.makeText(Payment.this, massage, Toast.LENGTH_SHORT).show();
-                    finish();
-                }else {
-                    Toast.makeText(Payment.this, massage, Toast.LENGTH_SHORT).show();
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(Payment.this, t.toString(), Toast.LENGTH_SHORT).show();
-
-            }
-        });
-    }
-
-    private void Update() {
-        String idg = ida;
-        String idgame = nid.getText().toString();
-        String jumplah = ndibeli.getText().toString();
-
-        apiinterface = Client.getClient().create(Apiinterface.class);
-        Call <User> call = apiinterface.baru(idg,idgame,jumplah);
+        Call<User> call = apiInterface.hapus(aid);
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 String value = response.body().getValue();
                 String message = response.body().getMessage();
 
-                if (value.equals("1")){
-                    Toast.makeText(Payment.this, message.toString(), Toast.LENGTH_SHORT).show();
+                if(value.equals("1")){
+                    Toast.makeText(Payment.this, message.toString(), Toast.LENGTH_LONG).show();
+                    finish();
                 }else {
-                    Toast.makeText(Payment.this, message.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Payment.this, message.toString(), Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(Payment.this, t.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Payment.this, t.toString(), Toast.LENGTH_LONG).show();
+
+            }
+        });
+    }
+
+
+    private void update() {
+        String aid = yid;
+        String usergame = input_nama.getText().toString();
+        String idgame = input_id.getText().toString();
+        String jumlah = input_jumlah.getText().toString();
+        String metode = input_metode.getText().toString();
+
+        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+
+        Call<User> call = apiInterface.baru(aid,usergame,idgame,jumlah,metode);
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                String value = response.body().getValue();
+                String message = response.body().getMessage();
+
+                if(value.equals("1")){
+                    Toast.makeText(Payment.this, message.toString(), Toast.LENGTH_LONG).show();
+                    finish();
+                }else {
+                    Toast.makeText(Payment.this, message.toString(), Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Toast.makeText(Payment.this, t.toString(), Toast.LENGTH_LONG).show();
+
             }
         });
     }
 
     private void Add() {
+        String usergame = input_nama.getText().toString().trim();
+        String idgame = input_id.getText().toString().trim();
+        String jumlah = input_jumlah.getText().toString().trim();
+        String metode = input_metode.getText().toString().trim();
 
-        String idgame = nid.getText().toString();
-        String jumplah = ndibeli.getText().toString();
+        apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
 
-        apiinterface = Client.getClient().create(Apiinterface.class);
-        Call <User> call = apiinterface.masuk(idgame,jumplah);
+        Call<User> call = apiInterface.masuk(usergame,idgame,jumlah,metode);
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 String value = response.body().getValue();
                 String message = response.body().getMessage();
 
-                if (value.equals("1")){
-                    Toast.makeText(Payment.this, message.toString(), Toast.LENGTH_SHORT).show();
+                if(value.equals("1")){
+                    Toast.makeText(Payment.this, message.toString(), Toast.LENGTH_LONG).show();
                 }else {
-                    Toast.makeText(Payment.this, message.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Payment.this, message.toString(), Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(Payment.this, t.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Payment.this, t.toString(), Toast.LENGTH_LONG).show();
+
             }
         });
     }

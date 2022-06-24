@@ -7,14 +7,39 @@
     android:orientation="vertical"
     android:paddingLeft="30dp"
     android:paddingRight="30dp"
-    android:paddingTop="80dp"
     tools:context=".Regertrasi">
 
     <ImageView
-        android:id="@+id/imageView"
+
+        android:id="@+id/image"
+        android:layout_width="306dp"
+        android:layout_height="257dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.113"
+        app:srcCompat="@drawable/gameskul" />
+
+    <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
-        android:layout_height="193dp"
-        app:srcCompat="@drawable/gostgame" />
+        android:layout_height="wrap_content"
+        android:text="Ayo Jadi Member"
+        android:textSize="29dp"
+        android:textStyle="bold"
+        android:layout_marginRight="40dp"
+        android:fontFamily="serif-monospace"
+        android:layout_marginLeft="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image"
+        app:layout_constraintVertical_bias="0.089" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_marginTop="9dp"

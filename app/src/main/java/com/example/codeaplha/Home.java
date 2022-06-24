@@ -12,10 +12,12 @@ import android.widget.TextView;
 import java.util.HashMap;
 
 public class Home extends AppCompatActivity {
-    private TextView nama, telpon;
+
+    private TextView nama,telpon;
     private Button btn_logout;
     SessionManager sessionManager;
-    CardView btn_PAYMENT,btn_RIWAYAR;
+    CardView mlbb, keranjang;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,42 +26,40 @@ public class Home extends AppCompatActivity {
         sessionManager = new SessionManager(this);
         sessionManager.checkLogin();
 
-        nama = findViewById(R.id.nama);
-        telpon = findViewById(R.id.telpon);
-        btn_logout = findViewById(R.id.btnlogout);
-        btn_RIWAYAR = (CardView) findViewById(R.id.pesanan);
 
+        nama = findViewById(R.id.namauser);
+        telpon = findViewById(R.id.telponuser);
+        btn_logout = findViewById(R.id.btn_logout);
+        mlbb = (CardView) findViewById(R.id.bangbang);
+        keranjang = (CardView) findViewById(R.id.keranjangpem);
 
-        HashMap<String, String> user = sessionManager.getUserDetail();
-        String mNama = user.get(sessionManager.NAMA);
-        String mTelpon = user.get(sessionManager.TELPON);
+        HashMap<String,String> user = sessionManager.getUserDetail();
+        String nNama = user.get(sessionManager.NAMA);
+        String nTelpon = user.get(sessionManager.TELPON);
 
-        nama.setText(mNama);
-        telpon.setText(mTelpon);
-
-        btn_PAYMENT = (CardView) findViewById(R.id.service);
-        btn_PAYMENT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Home.this,Payment.class);
-                startActivity(intent);
-
-            }
-        });
-
-        btn_RIWAYAR.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Home.this,Riwayat.class);
-                startActivity(intent);
-            }
-        });
-
+        nama.setText(nNama);
+        telpon.setText(nTelpon);
 
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sessionManager.logout();
+            }
+        });
+
+        mlbb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Home.this,Payment.class);
+                startActivity(intent);
+            }
+        });
+
+        keranjang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Home.this,Riwayat.class);
+                startActivity(intent);
             }
         });
 
